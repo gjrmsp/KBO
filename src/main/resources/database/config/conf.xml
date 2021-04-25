@@ -5,10 +5,10 @@
 
   <configuration>
 	<typeAliases>
-		<typeAlias type="com.google.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
-		<typeAlias type="com.google.s3.board.BoardDTO" alias="BoardDTO"/>
-		<typeAlias type="com.google.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
-		<typeAlias type="com.google.s3.util.Pager" alias="Pager"/>		
+		<typeAlias type="com.kbo.s1.board.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.kbo.s1.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.kbo.s1.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.kbo.s1.util.Pager" alias="Pager"/>		
 		<typeAlias type="java.lang.Long" alias="Long"/>
 	</typeAliases>
 </configuration>

@@ -10,18 +10,18 @@ import com.kbo.s1.util.Pager_BackUp;
 public interface BoardService {
 
 	//list
-	public List<BoardDTO> getList(Pager pager)throws Exception;
+	public List<BoardDTO> getList(Pager pager) throws Exception;
 	
 	//글 조회
-	public BoardDTO getSelect(BoardDTO boardDTO)throws Exception;
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception;
 	
 	//글 추가
-	public int setInsert(BoardDTO boardDTO, MultipartFile [] files)throws Exception;
+	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
 	
 	//글 수정
-	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files)throws Exception;
+	public int setUpdate(BoardDTO boardDTO, MultipartFile [] files) throws Exception;
 	
 	//글 삭제
-	public int setDelete(BoardDTO boardDTO)throws Exception;
+	public int setDelete(BoardDTO boardDTO) throws Exception;
 	
 }

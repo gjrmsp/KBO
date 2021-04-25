@@ -25,7 +25,7 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@PostMapping("summerFileDelete")
-	public ModelAndView setSummerFileDelete(String fileName)throws Exception{
+	public ModelAndView setSummerFileDelete(String fileName) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		boolean result = noticeService.setSummerFileDelete(fileName);
 		mv.addObject("result", result);
@@ -47,7 +47,7 @@ public class NoticeController {
 	}
 
 	@GetMapping("fileDelete")
-	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setFileDelete(boardFileDTO);
 		mv.addObject("result", result);

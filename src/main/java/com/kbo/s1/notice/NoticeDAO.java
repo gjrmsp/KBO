@@ -19,7 +19,7 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.kbo.s1.board.notice.NoticeDAO.";
 
-	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO)throws Exception{
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
 	}
 	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {

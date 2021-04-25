@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kbo.s1.member.MemberDAO">
+
+	<insert id="memberJoin" parameterType="MemberDTO">
+		insert into member values(#{id}, #{pw}, #{name}, #{email}, #{phone}, #{favoriteTeam})
+	</insert>
+
+	<select id="memberLogin" parameterType="MemberDTO" resultMap="memberLoginResult">
+		select M.*, MF.* 
+		from member M left join memberFile MF
+		on M.id = MF.id
+		where M.id=#{id} and M.pw=#{pw}
+	</select>
+
+	<select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO" >
+		select * from memberFile where id=#{id}
+	</select>
+
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update member set pw=#{pw}, name=#{name}, email=#{email}, phone=#{phone}, favoriteTeam=#{favoriteTeam}
+		where id=#{id}
+	</update>
+	
+	<delete id="memberDelete" parameterType="MemberDTO">
+		delete member where	id=#{id}
+	</delete>
+	
+	<insert id="setFileInsert" parameterType="MemberFileDTO">
+		insert into memberFile values(FN_SEQ.nextval, #{id}, #{fileName}, #{origineName})
+	</insert>
+	
+	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
+		select fileName from memberFile where id=#{id}
+	</select>
+
+	<resultMap type="MemberDTO" id="memberLoginResult">
+		<id property="id" column="id"/>
+		<result property="pw" column="pw"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<association property="memberFileDTO" javaType="MemberFileDTO" resultMap="memberFileResult"></association>
+	</resultMap>
+	
+	<resultMap type="MemberFileDTO" id="memberFileResult">
+		<id property="num" column="num"/>
+		<result property="fileName" column="fileName"/>
+		<result property="origineName" column="origineName"/>
+	</resultMap>
+
+</mapper>

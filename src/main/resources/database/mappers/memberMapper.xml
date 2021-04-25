@@ -13,11 +13,11 @@
 		select M.*, MF.* 
 		from member M left join memberFile MF
 		on M.id = MF.id
-		where M.id=#{id} and M.pw=#{pw}
+		where M.id = #{id} and M.pw = #{pw}
 	</select>
 
 	<select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO" >
-		select * from memberFile where id=#{id}
+		select * from memberFile where id = #{id}
 	</select>
 
 	<update id="memberUpdate" parameterType="MemberDTO">
@@ -26,7 +26,7 @@
 	</update>
 	
 	<delete id="memberDelete" parameterType="MemberDTO">
-		delete member where	id=#{id}
+		delete member where	id = #{id}
 	</delete>
 	
 	<insert id="setFileInsert" parameterType="MemberFileDTO">

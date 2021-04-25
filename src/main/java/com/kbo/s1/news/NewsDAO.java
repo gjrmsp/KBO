@@ -17,9 +17,9 @@ public class NewsDAO implements BoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.kbo.s1.board.news.newsDAO.";
+	private final String NAMESPACE="com.kbo.s1.news.NewsDAO.";
 
-	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO)throws Exception{
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);
 	}
 	public int setFileDelete(BoardFileDTO boardFileDTO) throws Exception {

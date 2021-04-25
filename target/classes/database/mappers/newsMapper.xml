@@ -7,23 +7,23 @@
 
 	<select id="getFileSelect" parameterType="BoardFileDTO"
 		resultType="BoardFileDTO">
-		select * from noticeFiles where fileNum=#{fileNum}
+		select * from newsFiles where fileNum=#{fileNum}
 	</select>
 
 	<delete id="setFileDelete" parameterType="BoardFileDTO">
-		delete noticeFiles
+		delete newsFiles
 		where fileNum=#{fileNum}
 	</delete>
 
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into noticeFiles
+		insert into newsFiles
 		values(file_seq.nextval, #{num}, #{fileName}, #{origineName})
 	</insert>
 
 	<select id="getSelect" parameterType="BoardDTO"
 		resultMap="selectResult">
 		select N.*, NF.*
-		from notice N left join noticeFiles NF
+		from news N left join newsFiles NF
 		on
 		N.num = NF.num
 		where N.num=#{num}
@@ -34,7 +34,7 @@
 		<result property="writer" column="writer" />
 		<result property="title" column="title" />
 		<result property="contents" column="contents" />
-		<result property="regdate" column="regdate" />
+		<result property="regDate" column="regDate" />
 		<result property="hit" column="hit" />
 		<collection property="boardFiles" javaType="java.util.List"
 			ofType="BoardFileDTO">
@@ -46,7 +46,7 @@
 
 	<select id="getTotalCount" resultType="Long"
 		parameterType="Pager">
-		select count(num) from notice
+		select count(num) from news
 		where
 		<choose>
 			<when test="kind == 'Writer'">
@@ -67,7 +67,7 @@
 		parameterType="Pager">
 		select * from
 		(select rownum R, N.* from
-		(select * from notice where
+		(select * from news where
 		<choose>
 			<when test="kind == 'Writer'">
 				writer
@@ -88,22 +88,22 @@
 	</select>
 
 	<select id="getNum" resultType="java.lang.Long">
-		select notice_seq.nextval from
+		select news_seq.nextval from
 		dual
 	</select>
 
 	<insert id="setInsert" parameterType="BoardDTO">
-		insert into notice
+		insert into news
 		values(#{num}, #{title}, #{writer}, #{contents}, sysdate, 0)
 	</insert>
 
 	<delete id="setDelete" parameterType="BoardDTO">
-		delete notice where
+		delete news where
 		num=#{num}
 	</delete>
 
 	<update id="setUpdate" parameterType="BoardDTO">
-		update notice set
+		update news set
 		title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 </mapper>

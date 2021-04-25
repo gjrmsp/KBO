@@ -13,7 +13,6 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>KBO에 오신 것을 환영합니다.</h1>
 	<c:import url="./template/header.jsp"></c:import>
 </body>
 </html>

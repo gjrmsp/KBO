@@ -17,7 +17,7 @@ public class NoticeDAO implements BoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
-	private final String NAMESPACE="com.kbo.s1.board.notice.NoticeDAO.";
+	private final String NAMESPACE="com.kbo.s1.notice.NoticeDAO.";
 
 	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getFileSelect", boardFileDTO);

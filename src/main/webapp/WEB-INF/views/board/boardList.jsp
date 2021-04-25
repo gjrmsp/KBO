@@ -11,7 +11,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<h2>자유 게시판</h2>
+		<h2>${board} 게시판</h2>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -26,9 +26,9 @@
 				<c:forEach items="${list}" var="dto">
 					<tr>
 						<td>${dto.num}</td>
-						<td>${dto.title}</td>
+						<td><a href="./${board}Select?num=${dto.num}">${dto.title}</a></td>
 						<td>${dto.writer}</td>
-						<td>${dto.regdate}</td>
+						<td>${dto.regDate}</td>
 						<td>${dto.hit}</td>
 					</tr>
 				</c:forEach>

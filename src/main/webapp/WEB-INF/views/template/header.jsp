@@ -15,9 +15,6 @@
 		<li class="nav-item">
 			<a class="nav-link"	href="${pageContext.request.contextPath}/news/newsList">NEWS</a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link"	href="${pageContext.request.contextPath}/qna/qnaList">QnA</a>
-		</li>
 		<c:if test="${empty member}">
 			<li class="nav-item"><a class="nav-link"
 				href="${pageContext.request.contextPath}/member/memberLogin">Login</a></li>

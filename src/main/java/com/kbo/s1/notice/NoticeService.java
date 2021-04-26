@@ -105,4 +105,10 @@ public class NoticeService implements BoardService {
 		return noticeDAO.getList(pager);
 	}
 
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

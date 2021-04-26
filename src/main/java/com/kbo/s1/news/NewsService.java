@@ -105,4 +105,10 @@ public class NewsService implements BoardService {
 		return newsDAO.getList(pager);
 	}
 
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
